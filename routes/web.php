@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\IndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,7 @@ use App\Http\Controllers\AuthController;
 
 Route::get('/adminLogin', [AuthController::class, 'login']);
 Route::get('/adminRegister', [AuthController::class, 'register']);
+
+Route::get('/index', [IndexController::class, 'index']);
+
+Route::post('/doRegister', [AuthController::class, 'doRegister']);
