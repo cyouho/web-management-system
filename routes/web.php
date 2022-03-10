@@ -15,9 +15,17 @@ use App\Http\Controllers\IndexController;
 |
 */
 
-Route::get('/adminLogin', [AuthController::class, 'login']);
-Route::get('/adminRegister', [AuthController::class, 'register']);
+Route::middleware(['check.login', 'data.db'])->group(function () {
+    Route::get('/adminLogin', [AuthController::class, 'login'])->withoutMiddleware(['check.login', 'data.db']);
+    Route::get('/adminRegister', [AuthController::class, 'register'])->withoutMiddleware(['check.login', 'data.db']);
+    Route::get('/index', [IndexController::class, 'index']);
+    Route::post('/doRegister', [AuthController::class, 'doRegister'])->withoutMiddleware(['check.login', 'data.db']);
+    Route::post('/doLogin', [AuthController::class, 'doLogin'])->withoutMiddleware(['check.login', 'data.db']);
+});
 
-Route::get('/index', [IndexController::class, 'index']);
+// Route::get('/adminLogin', [AuthController::class, 'login']);
+// Route::get('/adminRegister', [AuthController::class, 'register']);
 
-Route::post('/doRegister', [AuthController::class, 'doRegister']);
+// Route::get('/index', [IndexController::class, 'index']);
+
+// Route::post('/doRegister', [AuthController::class, 'doRegister']);

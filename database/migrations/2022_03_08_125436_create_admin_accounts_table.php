@@ -16,13 +16,14 @@ class CreateAdminAccountsTable extends Migration
         Schema::create('admin_accounts', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->id('admin_id')->unique();
-            $table->string('admin_role');
+            $table->integer('admin_role');
             $table->string('admin_name');
             $table->string('admin_email')->unique();
+            $table->string('admin_password');
             $table->string('admin_session')->nullable();
             $table->timestamps();
             $table->timestamp('last_login_at');
-            $table->timestamp('total_login_times');
+            $table->integer('total_login_times');
         });
     }
 
