@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\AdminAccount;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Utils as ControllerUtils;
+use Illuminate\Support\Facades\Cookie;
 
 class AuthController extends Controller
 {
@@ -83,10 +84,12 @@ class AuthController extends Controller
             $postData['email']
         );
 
-        return view('index');
+        return response()->redirectTo('/index')->cookie('_zhangfan', $adminSession, 60);
     }
 
     public function doLogout()
     {
+        $adminCookie = Cookie::forget('_cyouho');
+        return response()->redirectTo('/adminLogin')->cookie($adminCookie);
     }
 }
