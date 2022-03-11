@@ -20,7 +20,8 @@ Route::middleware(['check.login', 'data.db'])->group(function () {
     Route::get('/adminRegister', [AuthController::class, 'register'])->withoutMiddleware(['check.login', 'data.db']);
     Route::get('/index', [IndexController::class, 'index']);
     Route::post('/doRegister', [AuthController::class, 'doRegister'])->withoutMiddleware(['check.login', 'data.db']);
-    Route::post('/doLogin', [AuthController::class, 'doLogin'])->withoutMiddleware(['check.login', 'data.db']);
+    Route::post('/doLogin', [AuthController::class, 'doLogin'])->withoutMiddleware(['check.login']);
+    Route::get('/logout', [AuthController::class, 'doLogout'])->withoutMiddleware(['check.login', 'data.db']);
 });
 
 // Route::get('/adminLogin', [AuthController::class, 'login']);

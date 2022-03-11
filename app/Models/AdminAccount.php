@@ -24,7 +24,7 @@ class AdminAccount extends Model
     public function checkAdminPassword(array $condition, array $columnName, string $adminPassword)
     {
         $result = $this->selectAdminData($condition, $columnName);
-        $hashPassword = isset($result[0]->user_password) ? $result[0]->user_password : NULL;
+        $hashPassword = isset($result[0]->admin_password) ? $result[0]->admin_password : NULL;
 
         return Hash::check($adminPassword, $hashPassword);
     }
