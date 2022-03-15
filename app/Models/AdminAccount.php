@@ -21,6 +21,11 @@ class AdminAccount extends Model
         return $this->selectAdminData($condition, $columnName);
     }
 
+    public function getAdminLoginRecord(int $adminId, int $loginRecordDate)
+    {
+        return $this->selectAdminData($condition = [], $columnName = []);
+    }
+
     public function checkAdminPassword(array $condition, array $columnName, string $adminPassword)
     {
         $result = $this->selectAdminData($condition, $columnName);
