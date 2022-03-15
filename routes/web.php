@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +24,8 @@ Route::middleware(['check.login', 'data.db'])->group(function () {
     Route::post('/doRegister', [AuthController::class, 'doRegister'])->withoutMiddleware(['check.login', 'data.db']);
     Route::post('/doLogin', [AuthController::class, 'doLogin'])->withoutMiddleware(['check.login']);
     Route::get('/logout', [AuthController::class, 'doLogout'])->withoutMiddleware(['check.login', 'data.db']);
+    Route::get('/user', [UserController::class, 'index']);
+    Route::post('/adminLoginRecordAjax', [AdminController::class, 'adminLoginRecordAjax']);
 });
 
 // Route::get('/adminLogin', [AuthController::class, 'login']);

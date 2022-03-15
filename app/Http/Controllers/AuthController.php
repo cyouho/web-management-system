@@ -7,6 +7,7 @@ use App\Models\AdminAccount;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Utils as ControllerUtils;
 use Illuminate\Support\Facades\Cookie;
+use App\Models\AdminLoginRecord;
 
 class AuthController extends Controller
 {
@@ -28,6 +29,7 @@ class AuthController extends Controller
         ]);
 
         $admin = new AdminAccount();
+        $adminLoginRecord = new AdminLoginRecord();
         $adminName = ControllerUtils::getNameFromEmail($postData['email']);
         $adminSession = ControllerUtils::getSessionRandomMD5();
         $timestamp = date("Y-m-d H:i:s");
@@ -45,7 +47,16 @@ class AuthController extends Controller
             'total_login_times' => 1,
         ];
 
-        $result = $admin->setAdminAccount($adminData);
+        $adminId = $admin->setAdminAccount($adminData);
+
+        $adminLoginRecordData = [
+            'admin_id' => $adminId,
+            'admin_name' => $adminName,
+            'login_at' => date('Y-m-d'),
+            'login_times' => 1,
+        ];
+
+        $loginRecordId = $adminLoginRecord->setAdminLoginRecord($adminLoginRecordData);
 
         return response()->redirectTo('/index')->cookie('_zhangfan', $adminSession, 60);
         //return response()->redirectTo('/index');
@@ -59,6 +70,7 @@ class AuthController extends Controller
         ]);
 
         $admin = new AdminAccount();
+        $adminLoginRecord = new AdminLoginRecord();
 
         $adminData = $admin->getAdminAccount(
             $condition = [['admin_email', $postData['email']]],

@@ -3,6 +3,7 @@
 
 <head>
     @include('global.global_header')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <script src="js/index.js"></script>
 </head>
 
@@ -19,7 +20,7 @@
                         <li class="nav-item">
                             <a class="nav-link active" href="#">
                                 <span data-feather="home"></span>
-                                登录记录 <span class="sr-only">(current)</span>
+                                管理员主页 <span class="sr-only">(current)</span>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -35,9 +36,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="/user">
                                 <span data-feather="users"></span>
-                                Customers
+                                用户管理
                             </a>
                         </li>
                         <li class="nav-item">
@@ -58,25 +59,22 @@
 
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">登录记录</h1>
+                    <h1 class="h2" id="adminId" value="{{ $data['admin_id'] }}">登录记录</h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div class="btn-group mr-2">
                             <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
                             <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
                         </div>
-                        <button type="button" id="recordDate" class="btn btn-sm btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
-                            <span data-feather="calendar"></span>
-                            近7天
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="#">近7天</a>
-                            <a class="dropdown-item" href="#">近14天</a>
-                            <a class="dropdown-item" href="#">近30天</a>
-                        </div>
+                        <select id="recordDate" class="btn btn-sm btn-outline-secondary">
+                            <option value="7">近7天</option>
+                            <option value="14">近14天</option>
+                            <option value="30">近30天</option>
+                        </select>
                     </div>
                 </div>
 
-                <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+                <!-- <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas> -->
+                <div class="my-4 w-100" id="main" width="900" height="380"></div>
 
                 <h2>详细记录</h2>
                 <div class="table-responsive">
