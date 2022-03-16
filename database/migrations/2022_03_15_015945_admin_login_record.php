@@ -17,7 +17,6 @@ class AdminLoginRecord extends Migration
             $table->engine = 'InnoDB';
             $table->id('record_id')->unique();
             $table->integer('admin_id');
-            $table->string('admin_name');
             $table->timestamp('login_at');
             $table->integer('login_times');
         });

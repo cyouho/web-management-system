@@ -12,9 +12,9 @@ class AdminLoginRecord extends Model
 
     const TABLE_NAME = 'admin_login_record';
 
-    public function setAdminLoginRecord(array $data)
+    public function setAdminLoginRecord(array $columnName = [], array $condition = [])
     {
-        return $this->createAdminData($data);
+        $this->createAdminData($columnName, $condition);
     }
 
     public function getAdminLoginRecord(int $adminId, int $loginRecordDate)
@@ -22,12 +22,13 @@ class AdminLoginRecord extends Model
         return $this->selectAdminData($condition = [], $columnName = []);
     }
 
-    private function createAdminData(array $data): int
+    private function createAdminData(array $columnName = [], array $condition = [])
     {
-        $id = DB::table(self::TABLE_NAME)
-            ->insertGetId($data);
-
-        return $id;
+        $affected = DB::table(self::TABLE_NAME)
+            ->updateOrInsert(
+                $columnName,
+                $condition
+            );
     }
 
     private function selectAdminData(array $condition = [], array $columnName = ['*'])
