@@ -17,9 +17,13 @@ class AdminLoginRecord extends Model
         $this->createAdminData($columnName, $condition);
     }
 
-    public function getAdminLoginRecord(int $adminId, int $loginRecordDate)
-    {
-        return $this->selectAdminData($condition = [], $columnName = []);
+    public function getAdminLoginRecord(
+        array $columnName = [],
+        array $condition = [],
+        string $orderByColumnName = '',
+        string $orderBy = 'desc'
+    ) {
+        return $this->selectAdminData($columnName, $condition, $orderByColumnName, $orderBy);
     }
 
     private function createAdminData(array $columnName = [], array $condition = [])
@@ -31,11 +35,16 @@ class AdminLoginRecord extends Model
             );
     }
 
-    private function selectAdminData(array $condition = [], array $columnName = ['*'])
-    {
+    private function selectAdminData(
+        array $columnName = ['*'],
+        array $condition = [],
+        string $orderByColumnName,
+        string $orderBy
+    ) {
         $result = DB::table(self::TABLE_NAME)
             ->select($columnName)
             ->where($condition)
+            ->orderBy($orderByColumnName, $orderBy)
             ->get();
 
         return $result;
