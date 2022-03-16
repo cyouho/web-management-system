@@ -3,9 +3,6 @@ $(document).ready(function () {
     var adminId = $("#adminId").attr("value");
 
     var myChart = echarts.init(document.getElementById('main'));
-    window.onresize = function () {
-        myChart.resize();
-    };
 
     adminLoginRecord(adminId, loginRecordDate);
 
@@ -15,6 +12,9 @@ $(document).ready(function () {
     });
 
     function adminLoginRecord() {
+        window.onresize = function () {
+            myChart.resize();
+        };
         $.ajax({
             url: "/adminLoginRecordAjax",
             type: "POST",

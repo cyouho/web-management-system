@@ -19,38 +19,14 @@
                     <ul class="nav flex-column">
                         <li class="nav-item">
                             <a class="nav-link active" href="#">
-                                <span data-feather="home"></span>
+                                <i class="bi bi-house-door"></i>
                                 管理员主页 <span class="sr-only">(current)</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="file"></span>
-                                Orders
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="shopping-cart"></span>
-                                Products
-                            </a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="/user">
-                                <span data-feather="users"></span>
+                                <i class="bi bi-person"></i>
                                 用户管理
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="bar-chart-2"></span>
-                                Reports
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="layers"></span>
-                                Integrations
                             </a>
                         </li>
                     </ul>
@@ -59,7 +35,7 @@
 
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2" id="adminId" value="{{ $data['admin_id'] }}">登录记录</h1>
+                    <h2 id="adminId" value="{{ $data['admin_id'] }}">登录记录</h2>
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div class="btn-group mr-2">
                             <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
@@ -74,7 +50,7 @@
                 </div>
 
                 <!-- <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas> -->
-                <div class="my-4 w-100" id="main" width="900" height="380"></div>
+                <div class="my-4 w-100 main" id="main" width="900" height="380"></div>
 
                 <h2>详细记录</h2>
                 <div class="table-responsive">

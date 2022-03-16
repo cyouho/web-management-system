@@ -102,10 +102,7 @@ body {
   box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
 }
 
-hr {
-  margin: 1rem 0;
-    color: inherit;
-    background-color: currentColor;
-    border: 0;
-    opacity: .25;
+.main {
+  width: 900px;
+  height: 500px;
 }

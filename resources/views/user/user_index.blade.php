@@ -3,7 +3,6 @@
 
 <head>
     @include('global.global_header')
-    <script src="js/index.js"></script>
 </head>
 
 <body>
@@ -18,38 +17,14 @@
                     <ul class="nav flex-column">
                         <li class="nav-item">
                             <a class="nav-link" href="/index">
-                                <span data-feather="home"></span>
+                                <i class="bi bi-house-door"></i>
                                 管理员主页
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="file"></span>
-                                Orders
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="shopping-cart"></span>
-                                Products
-                            </a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link active" href="/user">
-                                <span data-feather="users"></span>
+                                <i class="bi bi-person"></i>
                                 用户管理 <span class="sr-only">(current)</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="bar-chart-2"></span>
-                                Reports
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="layers"></span>
-                                Integrations
                             </a>
                         </li>
                     </ul>
