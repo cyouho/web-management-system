@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Utils as ControllerUtils;
 use Illuminate\Support\Facades\Cookie;
 use App\Models\AdminLoginRecord;
+use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
 {
@@ -72,6 +73,7 @@ class AuthController extends Controller
         $admin = new AdminAccount();
         $adminLoginRecord = new AdminLoginRecord();
 
+        // 获取用户数据 admin_id, admin_name, admin_role
         $adminData = $admin->getAdminAccount(
             $condition = [['admin_email', $postData['email']]],
             $columnName = ['admin_id', 'admin_name', 'admin_role']
@@ -90,10 +92,28 @@ class AuthController extends Controller
         $loginTime = date('Y-m-d H:i:s');
         $adminSession = ControllerUtils::getSessionRandomMD5();
 
+        // 更新admin的session，最后登录时间，总登录次数
         $admin->updateAdminSessionAndLastLoginAtAndTotalLoginTimes(
             $loginTime,
             $adminSession,
             $postData['email']
+        );
+
+        $loginRecordDate = date('Y-m-d');
+        $adminLoginDataColumnName = [
+            'admin_id' => $adminData[0]->admin_id,
+            'login_at' => $loginRecordDate,
+        ];
+
+        $adminLoginDataCondition = [
+            'login_at' => $loginRecordDate,
+            'login_times' => DB::raw('login_times + 1'),
+        ];
+
+        // 更新admin每天登录次数
+        $adminLoginRecord->setAdminLoginRecord(
+            $adminLoginDataColumnName,
+            $adminLoginDataCondition
         );
 
         return response()->redirectTo('/index')->cookie('_zhangfan', $adminSession, 60);
