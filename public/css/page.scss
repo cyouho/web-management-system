@@ -106,3 +106,15 @@ body {
   width: 900px;
   height: 500px;
 }
+
+.dropdown-item.active,
+.dropdown-item:active {
+  color: #fff;
+  background-color:#343a40;
+}
+
+.dropdown-item:focus, 
+.dropdown-item:hover {
+  color: #1e2125;
+  background-color: #979797;
+}

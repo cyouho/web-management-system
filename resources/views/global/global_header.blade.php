@@ -41,4 +41,4 @@
 
 
 <!-- Custom styles for this template -->
-<link href="css/page.css" rel="stylesheet">
+<link href="css/page.scss" rel="stylesheet">

@@ -14,19 +14,13 @@
 
             <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
                 <div class="sidebar-sticky pt-3">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/index">
-                                <i class="bi bi-house-door"></i>
-                                管理员主页
-                            </a>
+                    <ul class="nav flex-column dropdown-menu-macos mx-0 border-0">
+                        <li><a class="dropdown-item" href="/index">管理员主页</a></li>
+                        <li><a class="dropdown-item active" href="/user">用户管理</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="/user">
-                                <i class="bi bi-person"></i>
-                                用户管理 <span class="sr-only">(current)</span>
-                            </a>
-                        </li>
+                        <li><a class="dropdown-item" href="#">Separated link</a></li>
                     </ul>
                 </div>
             </nav>
