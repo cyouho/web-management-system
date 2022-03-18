@@ -24,6 +24,9 @@
                         </li>
                         <li><a class="dropdown-item" href="#">Separated link</a></li>
                     </ul>
+                    <ul class="nav flex-column dropdown-menu-macos mx-0 border-0">
+                        @include('global.global_sidebar')
+                    </ul>
                 </div>
             </nav>
 
