@@ -8,7 +8,11 @@ class IndexController extends Controller
 {
     public function index()
     {
-        return view('index');
+        $indexData = [
+            'current_page' => 'active',
+        ];
+
+        return view('index', ['indexData' => $indexData]);
     }
 
     public function getAdminDetails()

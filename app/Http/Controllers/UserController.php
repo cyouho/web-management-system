@@ -8,6 +8,10 @@ class UserController extends Controller
 {
     public function index()
     {
-        return view('user.user_index');
+        $userData = [
+            'current_page' => 'active',
+        ];
+
+        return view('user.user_index', ['userData' => $userData]);
     }
 }
