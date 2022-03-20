@@ -6,6 +6,7 @@
 <title>Dashboard Template · Bootstrap v4.6</title>
 
 <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/dashboard/">
+<meta name="csrf-token" content="{{ csrf_token() }}">
 
 
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->

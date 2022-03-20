@@ -3,6 +3,7 @@
 
 <head>
     @include('global.global_header')
+    <script src="js/user.js"></script>
 </head>
 
 <body>
@@ -12,24 +13,22 @@
     <div class="container-fluid">
         <div class="row">
 
-            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse font-weight-bold">
-                <div class="sidebar-sticky pt-3">
-                    <ul class="nav flex-column dropdown-menu-macos mx-0 border-0">
-                        <li><a class="dropdown-item" href="/index">管理员主页</a></li>
-                        <li><a class="dropdown-item active" href="/user">用户管理</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Separated link</a></li>
-                    </ul>
-                    <ul class="nav flex-column dropdown-menu-macos mx-0 border-0">
-                        @include('global.global_sidebar')
-                    </ul>
-                </div>
-            </nav>
+            @include('global.global_sidebar')
 
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+                <div>
+                    <div class="input-group mt-3 mb-3">
+                        <input type="text" id="userEmail" class="form-control" placeholder="用户 email">
+                        <div class="input-group-prepend">
+                            <button type="button" id="userDataSearch" class="btn btn-primary">
+                                检索
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div id="userDataDetail">
 
+                </div>
             </main>
         </div>
     </div>
