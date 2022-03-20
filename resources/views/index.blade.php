@@ -3,7 +3,6 @@
 
 <head>
     @include('global.global_header')
-    <meta name="csrf-token" content="{{ csrf_token() }}">
     <script src="js/index.js"></script>
 </head>
 
