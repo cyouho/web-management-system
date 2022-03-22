@@ -1,22 +1,27 @@
 $(document).ready(function () {
-    var loginRecordDate = '7';
+    var loginRecordDate = 7;
     var token = $('meta[name="csrf-token"]').attr('content');
+    //var userId = $("#userId").attr("value");
+    var myChart = echarts.init(document.getElementById('main'));
 
     $('#userDataSearch').click(function () {
         userEmail = $("#userEmail").val();
 
         $('#userDataDetail').load('/userDataDetailAjax', {
             'user_email': userEmail, '_token': token,
+            function() {
+                myChart = echarts.init(document.getElementById('main'));
+                adminLoginRecord(userId = 6, loginRecordDate);
+            }
         });
     });
 
-    var myChart = echarts.init(document.getElementById('main'));
 
-    adminLoginRecord(adminId, loginRecordDate);
 
-    $("#recordDate").change(function () {
+    $("#userDataDetail").on('change', '#recordDate', function () {
         loginRecordDate = $("#recordDate option:selected").val();
-        adminLoginRecord(adminId, loginRecordDate);
+
+        //adminLoginRecord(userId = 6, loginRecordDate);
     });
 
     function adminLoginRecord() {
@@ -30,7 +35,7 @@ $(document).ready(function () {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             data: {
-                "adminId": adminId,
+                "userId": userId,
                 "recordDay": loginRecordDate,
             },
             success: function (result) {
