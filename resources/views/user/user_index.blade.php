@@ -28,6 +28,7 @@
                 </div>
                 <div id="userDataDetail">
 
+                    <div class="my-4 w-100 main" id="main" width="900" height="380"></div>
                 </div>
             </main>
         </div>

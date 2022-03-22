@@ -52,7 +52,6 @@ class AuthController extends Controller
 
         $adminLoginRecordData = [
             'admin_id' => $adminId,
-            'admin_name' => $adminName,
             'login_at' => date('Y-m-d'),
             'login_times' => 1,
         ];

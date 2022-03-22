@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    var loginRecordDate = '7';
+    var loginRecordDate = 7;
     var adminId = $("#adminId").attr("value");
 
     var myChart = echarts.init(document.getElementById('main'));
