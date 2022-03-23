@@ -1,27 +1,25 @@
 $(document).ready(function () {
     var loginRecordDate = 7;
     var token = $('meta[name="csrf-token"]').attr('content');
-    //var userId = $("#userId").attr("value");
-    var myChart = echarts.init(document.getElementById('main'));
+    var userId = $("#userId").attr("value");
 
     $('#userDataSearch').click(function () {
         userEmail = $("#userEmail").val();
 
         $('#userDataDetail').load('/userDataDetailAjax', {
             'user_email': userEmail, '_token': token,
-            function() {
+        }, function (response, status, xhr) {
+            if (response.length > 50) {
                 myChart = echarts.init(document.getElementById('main'));
-                adminLoginRecord(userId = 6, loginRecordDate);
+                userId = $("#userId").attr("value");
+                adminLoginRecord(userId, loginRecordDate);
             }
         });
     });
 
-
-
     $("#userDataDetail").on('change', '#recordDate', function () {
         loginRecordDate = $("#recordDate option:selected").val();
-
-        //adminLoginRecord(userId = 6, loginRecordDate);
+        adminLoginRecord(userId, loginRecordDate);
     });
 
     function adminLoginRecord() {

@@ -32,7 +32,6 @@ class UserController extends Controller
                 'userValidateResult' => $validateResult,
                 'getUserResult'      => NULL,
             ];
-
             return view('user.user_data_detail', ['userData' => $userData]);
         }
 
@@ -43,11 +42,20 @@ class UserController extends Controller
                 'userValidateResult' => NULL,
                 'getUserResult'      => 'User not exsist',
             ];
-
             return view('user.user_data_detail', ['userData' => $userData]);
         }
 
-        return view('user.user_data_detail', ['userId' => $getUserResult[0]['user_id']]);
+        $user = new UserAccount();
+        $result = $user->getUserAccount(
+            $columnName = ['user_name', 'created_at', 'last_login_at'],
+            $condition = [['user_email', $postData['user_email']]]
+        );
+        $userData = json_decode($result, TRUE)[0]; // 注意这里的 [0]
+
+        return view('user.user_data_detail', ['userData' => [
+            'userId' => $getUserResult[0]['user_id'],
+            'userData' => $userData,
+        ]]);
     }
 
     public function userLoginRecordAjax(Request $request)
