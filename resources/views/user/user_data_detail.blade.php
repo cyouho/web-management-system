@@ -52,7 +52,45 @@
     <div class="my-4 w-100 main" id="main" width="900" height="380"></div>
 
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h2>登录记录</h2>
+        <h2>注册服务</h2>
     </div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>用户Id</th>
+                <th>服务Id</th>
+                <th>服务名</th>
+                <th>服务状态</th>
+                <th>服务注册时间</th>
+                <th>服务修改时间</th>
+            </tr>
+        <tbody>
+            <tr>
+                @isset($userData['userServersData'])
+                @foreach($userData['userServersData'] as $value)
+                <td>
+                    {{ $value['user_id'] }}
+                </td>
+                <td>
+                    {{ $value['server_id'] }}
+                </td>
+                <td>
+                    {{ $userData['userServersCHNName'][$value['server_name']] }}
+                </td>
+                <td>
+                    {{ $value['server_status'] ? '使用中' : '暂停中' }}
+                </td>
+                <td>
+                    {{ $value['created_at'] }}
+                </td>
+                <td>
+                    {{ $value['updated_at'] }}
+                </td>
+                @endforeach
+                @endisset
+            </tr>
+        </tbody>
+        </thead>
+    </table>
 </div>
 @endif
