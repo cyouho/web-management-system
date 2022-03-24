@@ -7,10 +7,18 @@ use App\Models\UserAccount;
 use App\Models\UserLoginRecord;
 use App\Http\Controllers\Utils as ControllerUtils;
 use Illuminate\Support\Facades\DB;
+use App\Models\UserServers;
 
 class UserController extends Controller
 {
     private $_legal_data_array = [7, 14, 30];
+
+    private $_user_servers_name = [];
+
+    public function __construct()
+    {
+        $this->_user_servers_name = config('serversname.user_servers_name');
+    }
 
     public function index()
     {
@@ -50,11 +58,20 @@ class UserController extends Controller
             $columnName = ['user_name', 'created_at', 'last_login_at'],
             $condition = [['user_email', $postData['user_email']]]
         );
-        $userData = json_decode($result, TRUE)[0]; // 注意这里的 [0]
+        $userData = json_decode($result, TRUE)[0]; // 注意这里的 [0], 已经转换成数组 array
+
+        $userServer = new UserServers();
+        $userServersResult = $userServer->getUserServers(
+            $columnName = ['*'],
+            $condition = [['user_id', $getUserResult[0]['user_id']]]
+        );
+        $userServersData = json_decode($userServersResult, TRUE); // 注意这里已转换为全数组 array
 
         return view('user.user_data_detail', ['userData' => [
             'userId' => $getUserResult[0]['user_id'],
             'userData' => $userData,
+            'userServersData' => isset($userServersData[0]) ? $userServersData : NULL,
+            'userServersCHNName' => $this->_user_servers_name,
         ]]);
     }
 
