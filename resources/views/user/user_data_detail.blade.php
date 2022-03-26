@@ -57,13 +57,15 @@
     <table class="table table-hover">
         <thead>
             <tr>
-                <th>用户Id</th>
-                <th>服务Id</th>
+                <th>用户ID</th>
+                <th>服务ID</th>
                 <th>服务名</th>
                 <th>服务状态</th>
                 <th>服务注册时间</th>
                 <th>服务修改时间</th>
+                <th>操作</th>
             </tr>
+        </thead>
         <tbody>
             <tr>
                 @isset($userData['userServersData'])
@@ -86,11 +88,17 @@
                 <td>
                     {{ $value['updated_at'] }}
                 </td>
+                <td>
+                    @if($value['server_status'])
+                    <button type="button" class="btn btn-danger btn-sm">暂停服务</button>
+                    @else
+                    <button type="button" class="btn btn-success btn-sm">开始服务</button>
+                    @endif
+                </td>
                 @endforeach
                 @endisset
             </tr>
         </tbody>
-        </thead>
     </table>
 </div>
 @endif
