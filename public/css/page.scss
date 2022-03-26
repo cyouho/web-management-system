@@ -122,3 +122,8 @@ body {
 .admin-name {
   padding: 2rem 1.5rem;
 }
+
+/* 用户注册服务列表内容垂直居中显示设置 */
+.table td{
+  vertical-align: middle;
+}

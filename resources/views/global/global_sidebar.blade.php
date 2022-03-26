@@ -8,8 +8,5 @@
             </li>
             <li><a class="dropdown-item" href="#">Separated link</a></li>
         </ul>
-        <ul class="nav flex-column dropdown-menu-macos mx-0 border-0">
-            <a class="admin-name fixed-bottom">admin name: {{ $data['admin_name'] }}</a>
-        </ul>
     </div>
 </nav>
