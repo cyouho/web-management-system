@@ -12,17 +12,25 @@ $(document).ready(function () {
             if (response.length > 50) {
                 myChart = echarts.init(document.getElementById('main'));
                 userId = $("#userId").attr("value");
-                adminLoginRecord(userId, loginRecordDate);
+                userLoginRecord(userId, loginRecordDate);
             }
         });
     });
 
+    // 用户登录记录Echarts绘图
     $("#userDataDetail").on('change', '#recordDate', function () {
         loginRecordDate = $("#recordDate option:selected").val();
-        adminLoginRecord(userId, loginRecordDate);
+        userLoginRecord(userId, loginRecordDate);
     });
 
-    function adminLoginRecord() {
+    $("#userDataDetail").on('click', '#changeServerStatus', function () {
+        serverId = $(this).val();
+        $("#userServerDetail").load('/changeUserServerDetailAjax', {
+            'userId': userId, 'serverId': serverId, '_token': token
+        });
+    });
+
+    function userLoginRecord() {
         window.onresize = function () {
             myChart.resize();
         };

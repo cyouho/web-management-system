@@ -17,6 +17,13 @@ class UserServers extends Model
         return $this->selectUserData($columnName, $condition);
     }
 
+    public function changeUserServerStatus(
+        array $condition = [],
+        array $updateData = []
+    ) {
+        return $this->updateUserData($condition, $updateData);
+    }
+
     private function selectUserData(array $columnName = ['*'], array $condition = [])
     {
         $result = DB::table(self::TABLE_NAME)
@@ -25,5 +32,19 @@ class UserServers extends Model
             ->get();
 
         return isset($result[0]) ? $result : NULL;
+    }
+
+    /**
+     * 非使用锁更新 update without any lock
+     */
+    private function updateUserData(
+        array $condition = [],
+        array $updateData = []
+    ) {
+        $affected = DB::table(self::TABLE_NAME)
+            ->where($condition)
+            ->update($updateData);
+
+        return $affected;
     }
 }

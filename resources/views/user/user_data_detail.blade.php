@@ -66,7 +66,7 @@
                 <th>操作</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="userServerDetail">
             <tr>
                 @isset($userData['userServersData'])
                 @foreach($userData['userServersData'] as $value)
@@ -90,9 +90,9 @@
                 </td>
                 <td>
                     @if($value['server_status'])
-                    <button type="button" class="btn btn-danger btn-sm">暂停服务</button>
+                    <button type="button" id="changeServerStatus" class="btn btn-danger btn-sm" value="{{ $value['server_id'] }}">暂停服务</button>
                     @else
-                    <button type="button" class="btn btn-success btn-sm">开始服务</button>
+                    <button type="button" id="changeServerStatus" class="btn btn-success btn-sm" value="{{ $value['server_id'] }}">开始服务</button>
                     @endif
                 </td>
                 @endforeach
