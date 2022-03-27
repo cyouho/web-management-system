@@ -28,6 +28,7 @@ Route::middleware(['check.login', 'data.db'])->group(function () {
     Route::post('/adminLoginRecordAjax', [AdminController::class, 'adminLoginRecordAjax']);
     Route::post('/userDataDetailAjax', [UserController::class, 'userDataDetailAjax']);
     Route::post('/userLoginRecordAjax', [UserController::class, 'userLoginRecordAjax']);
+    Route::post('/changeUserServerDetailAjax', [UserController::class, 'changeUserServerDetailAjax']);
 });
 
 // Route::get('/adminLogin', [AuthController::class, 'login']);

@@ -94,6 +94,38 @@ class UserController extends Controller
         return response()->json($dateResult);
     }
 
+    public function changeUserServerDetailAjax(Request $request)
+    {
+        $postData = $request->post();
+
+        $userId = $postData['userId'];
+        $serverId = $postData['serverId'];
+
+        $userServer = new UserServers();
+        $userServer->changeUserServerStatus(
+            $conditon = [
+                ['server_id', $serverId],
+                ['user_id', $userId]
+            ],
+            $update = [
+                'server_status' => DB::raw('IF (server_status = 1, 0, 1)'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ]
+        );
+
+        $result = $userServer->getUserServers(
+            $columnName = ['*'],
+            $condition = [['user_id', $userId]],
+        );
+
+        $userServerData = json_decode($result, TRUE); // 转换成数组 array
+
+        return view('user.user_data_server_detail', ['userData' => [
+            'userServersData' => isset($userServerData[0]) ? $userServerData : NULL,
+            'userServersCHNName' => $this->_user_servers_name,
+        ]]);
+    }
+
     private function validatePostData(array $postData)
     {
         if (is_null($postData['user_email'])) {
