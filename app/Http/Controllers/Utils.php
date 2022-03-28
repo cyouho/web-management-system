@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+/**
+ * Controller Utils
+ * 控制器用工具类
+ */
 class Utils extends Controller
 {
     /**
@@ -32,7 +36,16 @@ class Utils extends Controller
         return substr($email, 0, strripos($email, "@"));
     }
 
-    public static function arrangeLoginDateWithLoginTimes($record, int $date)
+    /**
+     * Arrange login data with login times.
+     * 整理登录记录数据
+     * 
+     * @param array $record <Login data from DB | 数据库里的登录记录>
+     * @param int $date <Data date to display | 需要显示的数据期间>
+     * 
+     * @return array
+     */
+    public static function arrangeLoginDateWithLoginTimes(array $record, int $date)
     {
         // 处理返回首页的数据
         // 生成登录 '日期' 记录 '空白' 数组 | 'login_day' | $recordDate.length = $date
