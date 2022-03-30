@@ -9,8 +9,16 @@ use App\Http\Controllers\Utils as ControllerUtils;
 
 class AdminController extends Controller
 {
+    /**
+     * Legal data for login record.
+     * 登录记录合法日期。
+     */
     private $_legal_data_array = [7, 14, 30];
 
+    /** 
+     * Admin Login record Ajax function.
+     * 管理员登录记录方法。
+     */
     public function adminLoginRecordAjax(Request $request)
     {
         $postData = $request->validate([
