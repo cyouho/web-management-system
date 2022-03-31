@@ -41,6 +41,15 @@ class AdminController extends Controller
         return response()->json($dateResult);
     }
 
+    /**
+     * Get admin login record from DB.
+     * 从数据库获取管理员登录记录。
+     * 
+     * @param int $adminId <管理员ID>
+     * @param int $loginRecordDate <管理员登录记录期间>
+     * 
+     * @return string $result <管理员登录记录>
+     */
     private function getAdminLoginRecord(int $adminId, int $loginRecordDate)
     {
         $admin = new AdminLoginRecord();
