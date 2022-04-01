@@ -12,16 +12,28 @@ use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
 {
+    /**
+     * Show register page.
+     * 显示注册页面。
+     */
     public function register()
     {
         return view('auth.register');
     }
 
+    /**
+     * Show login page.
+     * 显示登陆页面。
+     */
     public function login()
     {
         return view('auth.login');
     }
 
+    /**
+     * Do register function.
+     * 注册功能方法。
+     */
     public function doRegister(Request $request)
     {
         $postData = $request->validate([
@@ -62,6 +74,10 @@ class AuthController extends Controller
         //return response()->redirectTo('/index');
     }
 
+    /**
+     * Do login function.
+     * 登陆功能方法。
+     */
     public function doLogin(Request $request)
     {
         $postData = $request->validate([
@@ -118,9 +134,13 @@ class AuthController extends Controller
         return response()->redirectTo('/index')->cookie('_zhangfan', $adminSession, 60);
     }
 
+    /**
+     * Do logout function.
+     * 登出功能方法。
+     */
     public function doLogout()
     {
-        $adminCookie = Cookie::forget('_cyouho');
+        $adminCookie = Cookie::forget('_zhangfan');
         return response()->redirectTo('/adminLogin')->cookie($adminCookie);
     }
 }
