@@ -7,6 +7,10 @@ use App\Models\AdminLoginRecord;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Utils as ControllerUtils;
 
+/**
+ * Admin Controller.
+ * 管理员控制器类
+ */
 class AdminController extends Controller
 {
     /**
