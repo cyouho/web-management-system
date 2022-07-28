@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\Cookie;
 use App\Models\AdminLoginRecord;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * Auth Class.
+ * 登录注册类
+ */
 class AuthController extends Controller
 {
     /**
