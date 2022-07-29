@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
+/**
+ * Admin Model Class.
+ * 管理员数据处理类
+ */
 class AdminAccount extends Model
 {
     const TABLE_NAME = 'admin_accounts';
