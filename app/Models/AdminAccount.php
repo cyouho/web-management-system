@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Hash;
  */
 class AdminAccount extends Model
 {
+    /**
+     * DB Table Name.
+     * 数据库表名
+     */
     const TABLE_NAME = 'admin_accounts';
 
     public function setAdminAccount($data)
