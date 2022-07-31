@@ -19,6 +19,14 @@ class AdminAccount extends Model
      */
     const TABLE_NAME = 'admin_accounts';
 
+    /**
+     * Set Admin Account.
+     * 设置管理员账户
+     * 
+     * @param array $data <admin data | 管理员数据>
+     * 
+     * @param mix function
+     */
     public function setAdminAccount($data)
     {
         return $this->createAdminData($data);
