@@ -32,6 +32,15 @@ class AdminAccount extends Model
         return $this->createAdminData($data);
     }
 
+    /**
+     * Get Admin Account.
+     * 获取管理员账户
+     * 
+     * @param array $condition <DB where condition | 数据库 where 检索约束条件>
+     * @param array $columnName <DB column name | 数据库列名>
+     * 
+     * @return mix function
+     */
     public function getAdminAccount(array $condition, array $columnName)
     {
         return $this->selectAdminData($condition, $columnName);
