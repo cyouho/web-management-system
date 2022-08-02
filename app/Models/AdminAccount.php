@@ -46,6 +46,15 @@ class AdminAccount extends Model
         return $this->selectAdminData($condition, $columnName);
     }
 
+    /**
+     * Get Admin Login Record.
+     * 获取管理员登录记录
+     * 
+     * @param int $adminId <admin Id | 管理员Id>
+     * @param int $loginRecordDate <admin login record date | 管理员登录时间>
+     * 
+     * @param mix function
+     */
     public function getAdminLoginRecord(int $adminId, int $loginRecordDate)
     {
         return $this->selectAdminData($condition = [], $columnName = []);
