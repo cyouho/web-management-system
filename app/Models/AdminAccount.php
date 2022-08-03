@@ -60,6 +60,16 @@ class AdminAccount extends Model
         return $this->selectAdminData($condition = [], $columnName = []);
     }
 
+    /**
+     * Check Admin Password.
+     * 检查管理员密码
+     * 
+     * @param array $condition <DB where condition | 数据库 where 检索约束条件>
+     * @param array $columnName <DB column name | 数据库列名>
+     * @param string $adminPassword <admin password | 管理员密码>
+     * 
+     * @return bool 0 | 1 <bool value | 布尔值>
+     */
     public function checkAdminPassword(array $condition, array $columnName, string $adminPassword)
     {
         $result = $this->selectAdminData($condition, $columnName);
