@@ -78,6 +78,16 @@ class AdminAccount extends Model
         return Hash::check($adminPassword, $hashPassword);
     }
 
+    /**
+     * Update Admin Session And Last Login at And Total Login Times.
+     * 更新管理员session，最后登录时间，总登录次数
+     * 
+     * @param string $loginTime <admin login time | 管理员登录时间>
+     * @param string $admin session <admin session | 管理员session>
+     * @param string $adminEmail <admin email | 管理员邮箱>
+     * 
+     * @return mix function
+     */
     public function updateAdminSessionAndLastLoginAtAndTotalLoginTimes(
         string $loginTime,
         string $adminSession,
