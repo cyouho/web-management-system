@@ -103,6 +103,14 @@ class AdminAccount extends Model
         );
     }
 
+    /**
+     * Create Admin Data.
+     * 穿件管理员数据
+     * 
+     * @param array $data <admin data | 管理员数据>
+     * 
+     * @return int $id <created admin Id | 创建好的管理员Id>
+     */
     private function createAdminData(array $data): int
     {
         $id = DB::table(self::TABLE_NAME)
