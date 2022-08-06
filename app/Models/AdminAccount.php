@@ -119,6 +119,15 @@ class AdminAccount extends Model
         return $id;
     }
 
+    /**
+     * Select Admin Data.
+     * 检索管理员数据
+     * 
+     * @param array $condition <DB where condition | 数据库 where 检索约束条件>
+     * @param array $columnName <DB column name | 数据库列名>
+     * 
+     * @return object $result <selected result | 检索结果>
+     */
     private function selectAdminData(array $condition = [], array $columnName = ['*'])
     {
         $result = DB::table(self::TABLE_NAME)
