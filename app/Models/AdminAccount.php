@@ -138,6 +138,13 @@ class AdminAccount extends Model
         return $result;
     }
 
+    /**
+     * Update Admin Data.
+     * 更新管理员数据
+     * 
+     * @param array $condition <DB where condition | 数据库 where 检索约束条件>
+     * @param array $updateData <admin update data | 管理员更新数据>
+     */
     private function updateAdminData($condition = [], $updataData = [])
     {
         $result = DB::table(self::TABLE_NAME)
