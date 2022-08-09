@@ -14,6 +14,10 @@ class AdminLoginRecord extends Model
 {
     use HasFactory;
 
+    /**
+     * DB Table Name.
+     * 数据库表名
+     */
     const TABLE_NAME = 'admin_login_record';
 
     public function setAdminLoginRecord(array $columnName = [], array $condition = [])
