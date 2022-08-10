@@ -20,6 +20,13 @@ class AdminLoginRecord extends Model
      */
     const TABLE_NAME = 'admin_login_record';
 
+    /**
+     * Set Admin Login Record.
+     * 设置管理员登录记录
+     * 
+     * @param array $columnName <DB column name | 数据库列名>
+     * @param array $condition <DB where condition | 数据库 where 检索约束条件>
+     */
     public function setAdminLoginRecord(array $columnName = [], array $condition = [])
     {
         $this->createAdminData($columnName, $condition);
