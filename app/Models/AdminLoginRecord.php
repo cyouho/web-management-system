@@ -32,6 +32,17 @@ class AdminLoginRecord extends Model
         $this->createAdminData($columnName, $condition);
     }
 
+    /**
+     * Get Admin Login Record.
+     * 获取管理员登录记录
+     * 
+     * @param array $columnName <DB column name | 数据库列名>
+     * @param array $condition <DB condition | 数据库 where 检索约束条件>
+     * @param string $orderByColumnName <DB order by column name | 数据库排序字段>
+     * @param string $orderBy <DB order by type | 数据库排序规则>
+     * 
+     * @return mix function
+     */
     public function getAdminLoginRecord(
         array $columnName = [],
         array $condition = [],
