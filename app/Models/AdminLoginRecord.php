@@ -52,6 +52,13 @@ class AdminLoginRecord extends Model
         return $this->selectAdminData($columnName, $condition, $orderByColumnName, $orderBy);
     }
 
+    /**
+     * Create Admin Data.
+     * 创建管理员数据
+     * 
+     * @param array $columnName <DB column name | 数据库列名>
+     * @param array $condition <DB condition | 数据库 where 检索约束条件>
+     */
     private function createAdminData(array $columnName = [], array $condition = [])
     {
         $affected = DB::table(self::TABLE_NAME)
