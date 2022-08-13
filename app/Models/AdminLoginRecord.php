@@ -68,6 +68,17 @@ class AdminLoginRecord extends Model
             );
     }
 
+    /**
+     * Select Admin Data.
+     * 检索管理员数据
+     * 
+     * @param array $columnName <DB column name | 数据库列名>
+     * @param array $condition <DB condition | 数据库 where 检索约束条件>
+     * @param string $orderByColumnName <DB order by column name | 数据库排序列名>
+     * @param string $orderBy <DB order by type | 数据库排序规则>
+     * 
+     * @return object $result <selected result | 检索结果>
+     */
     private function selectAdminData(
         array $columnName = ['*'],
         array $condition = [],
