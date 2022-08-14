@@ -13,6 +13,10 @@ class UserAccount extends Model
 {
     use HasFactory;
 
+    /**
+     * DB Table Name.
+     * 数据库表名
+     */
     const TABLE_NAME = 'user_accounts';
 
     public function getUserAccount(array $columnName = ['*'], $condition = [])
