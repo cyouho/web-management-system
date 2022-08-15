@@ -19,6 +19,15 @@ class UserAccount extends Model
      */
     const TABLE_NAME = 'user_accounts';
 
+    /**
+     * Get User Account.
+     * 获取用户账户
+     * 
+     * @param array $columnName <DB column name | 数据库列名>
+     * @param array $columnValue <DB where conditon | 数据库 where 检索约束条件>
+     * 
+     * @return mix function 
+     */
     public function getUserAccount(array $columnName = ['*'], $condition = [])
     {
         return $this->selectUserData($columnName, $condition);
