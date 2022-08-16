@@ -33,6 +33,15 @@ class UserAccount extends Model
         return $this->selectUserData($columnName, $condition);
     }
 
+    /**
+     * Select User Data.
+     * 检索用户数据
+     * 
+     * @param array $columnName <DB column name | 数据库列名>
+     * @param array $condition <DB condition | 数据库 where 检索约束条件>
+     * 
+     * @return object $result <selected result | 检索结果>
+     */
     private function selectUserData(array $columnName = ['*'], array $condition = [])
     {
         $result = DB::table(self::TABLE_NAME)
