@@ -20,6 +20,13 @@ class UserLoginRecord extends Model
      */
     const TABLE_NAME = 'user_login_records';
 
+    /**
+     * Set User Login Record.
+     * 设置用户登录记录
+     * 
+     * @param array $columnName <DB column name | 数据库列名>
+     * @param array $condition <DB condition | 数据库 where 检索约束条件>
+     */
     public function setUserLoginRecord(array $columnName = [], array $condition = [])
     {
         $this->createUserData($columnName, $condition);
