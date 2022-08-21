@@ -52,6 +52,13 @@ class UserLoginRecord extends Model
         return $this->selectUserData($columnName, $condition, $orderByColumnName, $orderBy);
     }
 
+    /**
+     * Create User Data.
+     * 创建用户数据
+     * 
+     * @param array $columnName <DB column name | 数据库列名>
+     * @param array $condition <DB where condition | 数据库 where 检索约束条件>
+     */
     private function createUserData(array $columnName = [], array $condition = [])
     {
         $affected = DB::table(self::TABLE_NAME)
