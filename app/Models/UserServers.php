@@ -34,6 +34,15 @@ class UserServers extends Model
         return $this->selectUserData($columnName, $condition);
     }
 
+    /**
+     * Change User Server Status.
+     * 更改用户服务状态
+     * 
+     * @param array $condition <DB where condition | 数据库 where 检索约束条件>
+     * @param array $updateData <update data | 需更新数据>
+     * 
+     * @return mix function
+     */
     public function changeUserServerStatus(
         array $condition = [],
         array $updateData = []
