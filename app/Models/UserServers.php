@@ -50,6 +50,15 @@ class UserServers extends Model
         return $this->updateUserData($condition, $updateData);
     }
 
+    /**
+     * Select User Data.
+     * 检索用户数据
+     * 
+     * @param array $columnName <DB column name | 数据库列名>
+     * @param array $condition <DB where condition | 数据库 where 检索约束条件>
+     * 
+     * @return int | NULL
+     */
     private function selectUserData(array $columnName = ['*'], array $condition = [])
     {
         $result = DB::table(self::TABLE_NAME)
