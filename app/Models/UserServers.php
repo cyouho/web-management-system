@@ -70,7 +70,14 @@ class UserServers extends Model
     }
 
     /**
+     * Update User Data.
+     * 更新用户数据
      * 非使用锁更新 update without any lock
+     * 
+     * @param array $condition <DB where condition | 数据库 where 检索约束条件>
+     * @param array $updateData <Update data | 需更新数据>
+     * 
+     * @return int $affected <unmber of affected line | 影响的行数>
      */
     private function updateUserData(
         array $condition = [],
